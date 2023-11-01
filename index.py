@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    X = "作者:楊子青 20231025<br>"
+    X = "作者:徐维骏 2023/11/01<br>"
     X += "<a href=/db>課程網頁</a><br>"
     X += "<a href=/tcyang?nick=tcyang>個人介紹及系統時間</a><br>"
     X += "<a href=/account>表單傳值</a><br>"
@@ -19,7 +19,7 @@ def db():
 def tcyang():
     now = str(datetime.now())
     user = request.values.get("nick")
-    return render_template("tcyang.html", datetime=now, name=user)
+    return render_template("Skhsu.html", datetime=now, name=user)
 
 @app.route("/account", methods=["GET", "POST"])
 def account():
