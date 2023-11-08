@@ -69,7 +69,7 @@ def search():
         user = request.form["keyword"]
         Result = "您輸入的关键字：" + user
 
-        Result = "＜br＞"
+        Result += "＜br＞"
         db = firestore.client()     
         collection_ref = db.collection("人選之人─造浪者")    
         docs = collection_ref.order_by("birth").get()    
