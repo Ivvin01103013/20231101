@@ -17,6 +17,8 @@ def index():
     X += "<a href=/account>表單傳值</a><br>"
     X += "<br><a href=/read>讀取Firestore資料</a><br>"
     X += "<br><a href=/read2>人選之人─造浪者</a><br>"
+    X += "<br><a href=/search>演员关键子</a><br>"
+
     return X
 
 @app.route("/db")
@@ -60,6 +62,24 @@ def read2():
         x = doc.to_dict()        
         Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"    
     return Result
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.method == "POST":
+        user = request.form["keyword"]
+        Result = "您輸入的关键字：" + keyword
+
+        Result = "＜br＞"
+        db = firestore.client()     
+        collection_ref = db.collection("人選之人─造浪者")    
+        docs = collection_ref.get()    
+        for doc in docs:         
+            x = doc.to_dict()
+            if keyword in x["name"]:        
+            Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"   
+        return Result
+      else:
+        return render_template("search.html")
 
 
 #if __name__ == "__main__":
