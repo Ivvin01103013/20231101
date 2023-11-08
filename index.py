@@ -17,7 +17,6 @@ def index():
     X += "<a href=/account>表單傳值</a><br>"
     X += "<br><a href=/read>讀取Firestore資料</a><br>"
     X += "<br><a href=/read2>人選之人─造浪者</a><br>"
-    
     return X
 
 @app.route("/db")
@@ -56,9 +55,10 @@ def read2():
     Result = ""
     db = firestore.client()     
     collection_ref = db.collection("人選之人─造浪者")    
-    docs = collection_ref.get()    
-    for doc in docs:         
-        Result += "文件內容：{}".format(doc.to_dict()) + "<br>"    
+    docs = collection_ref.order_by("birth")get()    
+    for doc in docs: 
+        x = doc.to_dict()        
+        Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"    
     return Result
 
 
