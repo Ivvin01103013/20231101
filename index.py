@@ -78,7 +78,7 @@ def search():
             if keyword in x["name"]:        
                 Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"   
         return Result
-      else:
+    else:
         return render_template("search.html")
 
 
