@@ -75,7 +75,7 @@ def search():
         docs = collection_ref.order_by("birth").get()    
         for doc in docs:         
             x = doc.to_dict()
-            if keyword in x["name"]:        
+            if keyword in x["name"]:
                 Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"   
         return Result
     else:
