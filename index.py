@@ -11,11 +11,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    X = "作者:邓佳钲 2023/11/08 sexual  <br>"
+    X = "作者:徐维骏2023/11/08 sexual  <br>"
     X += "<a href=/db>課程網頁</a><br>"
     X += "<a href=/tcyang?nick=tcyang>個人介紹及系統時間</a><br>"
     X += "<a href=/account>表單傳值</a><br>"
     X += "<br><a href=/read>讀取Firestore資料</a><br>"
+    X += "<br><a href=/read2>人選之人─造浪者</a><br>"
+    
     return X
 
 @app.route("/db")
@@ -49,6 +51,15 @@ def read():
         Result += "文件內容：{}".format(doc.to_dict()) + "<br>"    
     return Result
 
+@app.route("/read2")
+def read2():
+    Result = ""
+    db = firestore.client()     
+    collection_ref = db.collection("人選之人─造浪者")    
+    docs = collection_ref.get()    
+    for doc in docs:         
+        Result += "文件內容：{}".format(doc.to_dict()) + "<br>"    
+    return Result
 
 
 #if __name__ == "__main__":
