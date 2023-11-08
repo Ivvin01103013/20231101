@@ -66,8 +66,8 @@ def read2():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        user = request.form["keyword"]
-        Result = "您輸入的关键字：" + user
+        keyword = request.form["keyword"]
+        Result = "您輸入的关键字：" + keyword
 
         Result += "＜br＞"
         db = firestore.client()     
