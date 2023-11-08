@@ -57,7 +57,7 @@ def read2():
     Result = ""
     db = firestore.client()     
     collection_ref = db.collection("人選之人─造浪者")    
-    docs = collection_ref.get()    
+    docs = collection_ref.order_by("birth").get()    
     for doc in docs: 
         x = doc.to_dict()        
         Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"    
@@ -72,11 +72,11 @@ def search():
         Result = "＜br＞"
         db = firestore.client()     
         collection_ref = db.collection("人選之人─造浪者")    
-        docs = collection_ref.get()    
+        docs = collection_ref.order_by("birth").get()    
         for doc in docs:         
             x = doc.to_dict()
             if keyword in x["name"]:        
-            Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"   
+                Result += "演员："+ x["name"] + ",在录音中" + x["role"] + ",出生" + str(x["birth"]) + "<br>"   
         return Result
       else:
         return render_template("search.html")
