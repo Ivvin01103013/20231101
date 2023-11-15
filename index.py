@@ -81,8 +81,8 @@ def search():
     else:
         return render_template("search.html")
 
-@app.route("/books")
-def books():
+@app.route("/addbooks")
+def addbooks():
     Result = ""
     db = firestore.client()     
     collection_ref = db.collection("原书")    
