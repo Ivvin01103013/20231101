@@ -17,6 +17,7 @@ def index():
     X += "<a href=/account>表單傳值</a><br>"
     X += "<br><a href=/read>讀取Firestore資料</a><br>"
     X += "<br><a href=/read2>人選之人─造浪者</a><br>"
+    X += "<br><a href=/addbooks>讀取Firestore圖書精選</a><br>"
     X += "<br><a href=/search>演员关键子</a><br>"
 
     return X
@@ -85,7 +86,7 @@ def search():
 def addbooks():
     Result = ""
     db = firestore.client()     
-    collection_ref = db.collection("原书")    
+    collection_ref = db.collection("圖書精選")    
     docs = collection_ref.order_by("anniversary").get()    
     for doc in docs: 
         x = doc.to_dict()        
