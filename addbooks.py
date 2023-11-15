@@ -1,9 +1,4 @@
 import firebase_admin
-from firebase_admin import credentials
-cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
-
-import firebase_admin
 from firebase_admin import credentials, firestore
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
@@ -37,10 +32,10 @@ docs = [
 
 {
   "title": "靜宜求學趣",
-  "author": "(您的姓名)",
+  "author": "王者出山",
   "cover": "(網路照片網址)",
   "url": "(您的個人網頁網址)",
-  "anniversary": (您的年齡)
+  "anniversary": 21
 }
 
 ]

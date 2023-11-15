@@ -81,6 +81,17 @@ def search():
     else:
         return render_template("search.html")
 
-
+@app.route("/books")
+def books():
+    Result = ""
+    db = firestore.client()     
+    collection_ref = db.collection("原书")    
+    docs = collection_ref.order_by("anniversary").get()    
+    for doc in docs: 
+        x = doc.to_dict()        
+        Result += "书名："+ x["title"] + "<br>"
+        Result += "作者："+ x["author"] + "<br>"
+        Result += str(x["anniversary"]) + 周年 + "<br>"        
+    return Result
 #if __name__ == "__main__":
     #app.run()
