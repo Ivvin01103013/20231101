@@ -17,7 +17,7 @@ def index():
     X += "<a href=/account>表單傳值</a><br>"
     X += "<br><a href=/read>讀取Firestore資料</a><br>"
     X += "<br><a href=/read2>人選之人─造浪者</a><br>"
-    X += "<br><a href=/addbooks>讀取Firestore圖書精選</a><br>"
+    X += "<br><a href=/addbooks>anjing</a><br>"
     X += "<br><a href=/search>演员关键子</a><br>"
 
     return X
@@ -95,6 +95,6 @@ def addbooks():
         Result += str(x["anniversary"]) + 周年 + "<br>"
         Result += "<img src=" + x["cover"] + "></img><br><br>"        
     return Result
-    
+
 #if __name__ == "__main__":
     #app.run()
