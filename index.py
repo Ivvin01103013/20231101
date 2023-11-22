@@ -85,10 +85,10 @@ def search():
 @app.route("/addbooks")
 def addbooks():
     Result = ""
-    db = firestore.client()     
-    collection_ref = db.collection("圖書精選")    
-    docs = collection_ref.order_by("anniversary").get()    
-    for doc in docs: 
+    db = firestore.client()
+    collection_ref = db.collection("圖書精選")
+    docs = collection_ref.order_by("anniversary").get()
+    for doc in docs:
         x = doc.to_dict()
         Result += "书名：<a href="+ x["url"] + ">" + x["title"] + "</a><br>"
         Result += "作者："+ x["author"] + "<br>"
