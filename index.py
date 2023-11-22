@@ -96,5 +96,5 @@ def addbooks():
         Result += "<img src=" + x["cover"] + "></img><br><br>"
     return Result
 
-#if __name__ == "__main__":
-    #app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
