@@ -95,5 +95,6 @@ def addbooks():
         Result += str(x["anniversary"]) + 周年 + "<br>"
         Result += "<img src=" + x["cover"] + "></img><br><br>"        
     return Result
+    
 #if __name__ == "__main__":
     #app.run()
