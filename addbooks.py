@@ -31,10 +31,10 @@ docs = [
 },
 
 {
-  "title": "靜宜求學趣",
+  "title": "Vinsmoke Sanji des",
   "author": "王者出山",
-  "cover": "(網路照片網址)",
-  "url": "(您的個人網頁網址)",
+  "cover": "https://www.opfanpage.com/wp-content/uploads/2020/04/main-qimg-9eb0e715230828ecd579404eabce1dfc-1.jpg",
+  "url": "https://youtu.be/8bKgRxNnBpY?feature=shared",
   "anniversary": 21
 }
 
