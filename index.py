@@ -92,7 +92,7 @@ def addbooks():
         x = doc.to_dict()
         Result += "书名：<a href="+ x["url"] + ">" + x["title"] + "</a><br>"
         Result += "作者："+ x["author"] + "<br>"
-        Result += str(x["anniversary"]) + 周年 + "<br>"
+        Result += str(x["anniversary"]) + "周年" + "<br>"
         Result += "<img src=" + x["cover"] + "></img><br><br>"
     return Result
 
