@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from bs4 import BeautifulSoup
 
 import firebase_admin
@@ -136,21 +136,21 @@ def movie():
 
 @app.route("/searchroad", methods=["POST","GET"])
 def searchroad():
-    url = "https://datacenter.taichung.gov.tw/swagger/OpenData/db36e286-1d2b-4784-99b9-3b0790dd9652"
-    Data = requests.get(url)
-    Data.encoding = "utf-8"
-    JsonData = json.loads(Data.text)
-
-    if requests.form["Road"]
-        Road=request.form["Road"]
-        Result = ""
-        if Road in item["路口名稱"]:
-            Result += item["路口名稱"] + "：發生" + item["總件數"] + "件，主因是" + item["主要肇因"] + "<br>"
-        if Result == "":
-            Result = "抱歉，查無相關資料！"
-    return Result
-else:
-    return render_template("road.html")
+    if request.method == "POST":
+        Road = request.form["Road"]
+        Result = "請輸入欲查詢的路名：" + Road
+        url = "https://datacenter.taichung.gov.tw/swagger/OpenData/db36e286-1d2b-4784-99b9-3b0790dd9652"
+        Data = requests.get(url)
+        Data.encoding = "utf-8"
+        JsonData = json.loads(Data.text)
+        for item in JsonData:
+            if Road in item["路口名稱"]:
+                Result += item["路口名稱"] + "：發生" + item["總件數"] + "件，主因是" + item["主要肇因"] + "<br>"
+                if Result == "":
+                    Result = "抱歉，查無相關資料！"
+        return Result
+    else:
+        return render_template("road.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
