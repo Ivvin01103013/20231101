@@ -23,6 +23,7 @@ def index():
     X += "<br><a href=/addbooks>海王</a><br>"
     X += "<br><a href=/search>演员关键子</a><br>"
     X += "<br><a href=/movie>讀取開眼電影即將上映影片，寫入Firestore</a><br>"
+    X += "<br><a href=/searchroad>Accident</a><br>"
 
     return X
 
